@@ -19,7 +19,7 @@ const NavBar = () => {
         {['Market', 'Exchange', 'Tutorials', 'Wallet'].map((navItem, index) => (
           <NavBarItem key={navItem + index} title={navItem} />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+        <li className="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 hover:text-white font-normal py-2 px-4 mx-4 rounded cursor-pointer">
           Login
         </li>
       </ul>
