@@ -6,7 +6,7 @@ contract Transactions {
     uint256 transactionCount;
 
     event Transfer(
-        address from,
+        address sender,
         address receiver,
         uint256 amount,
         string message,
