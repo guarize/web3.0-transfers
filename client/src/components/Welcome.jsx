@@ -13,7 +13,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
     step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+    className="h-11 my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
   />
 );
 
@@ -25,7 +25,7 @@ const Welcome = () => {
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
-        <div className="flex flex-1 justify-start items-start flex-col mf:mr-20">
+        <div className="flex flex-1 justify-start items-start flex-col mf:mr-20 xmf:mr-60">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
             Send Crypto <br /> across the world
           </h1>
@@ -83,12 +83,12 @@ const Welcome = () => {
               type="number"
               handleChange={() => {}}
             />
-            <Input
+            {/* <Input
               placeholder="Keyword"
               name="keyword"
               type="text"
               handleChange={() => {}}
-            />
+            /> */}
             <Input
               placeholder="Message"
               name="message"
@@ -101,7 +101,13 @@ const Welcome = () => {
             {false ? (
               <Loader />
             ) : (
-              <button type="button" onClick={handleSubmit} className='text-white w-full mt-2 border-[1px] p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 hover:text-white font-normal rounded cursor-pointer'>Send Now</button>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="text-white w-full mt-2 border-[1px] p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 hover:text-white font-normal rounded cursor-pointer"
+              >
+                Send Now
+              </button>
             )}
           </div>
         </div>
