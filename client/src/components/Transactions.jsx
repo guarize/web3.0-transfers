@@ -49,13 +49,7 @@ const TransactionCard = ({
           </>
         )}
         <svg width="1em" height="1em">
-          <linearGradient
-            id="bg-checkmark"
-            x1="100%"
-            y1="100%"
-            x2="0%"
-            y2="0%"
-          >
+          <linearGradient id="bg-checkmark" x1="100%" y1="100%" x2="0%" y2="0%">
             <stop stopColor="#11998e" offset="0%" />
             <stop stopColor="#38ef7d" offset="100%" />
           </linearGradient>
@@ -63,7 +57,7 @@ const TransactionCard = ({
         <IoCheckmarkDone
           fontSize={40}
           className="w-full h-36 rounded-md"
-          style={{ stroke: "url(#bg-checkmark)" }}
+          style={{ stroke: 'url(#bg-checkmark)' }}
         />
         <div className="bg-black p-3 px-5 w-max rounded-3xl mt-5 shadow-2xl">
           <p className="text-[#37c7da] font-bold">{timestamp}</p>
@@ -74,7 +68,7 @@ const TransactionCard = ({
 );
 
 const Transactions = () => {
-  const { currentAccount } = useContext(TransactionContext);
+  const { currentAccount, transactions } = useContext(TransactionContext);
 
   return (
     <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
@@ -90,9 +84,12 @@ const Transactions = () => {
         )}
 
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {testData.reverse().map((transaction, index) => (
-            <TransactionCard key={index} {...transaction} />
-          ))}
+          {transactions.length &&
+            transactions
+              .reverse()
+              .map((transaction, index) => (
+                <TransactionCard key={index} {...transaction} />
+              ))}
         </div>
       </div>
     </div>

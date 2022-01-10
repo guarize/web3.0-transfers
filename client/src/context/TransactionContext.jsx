@@ -29,9 +29,35 @@ export const TransactionProvider = ({ children }) => {
   const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem('transactionCount'),
   );
+  const [transactions, setTransactions] = useState([]);
 
   const handleForm = ({ target: { value } }, name) => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const getAllTransactions = async () => {
+    try {
+      if (!ethereum) return alert('Please install Metamask');
+
+      const transactionContract = getEthereumContract();
+
+      const availableTransactions =
+        await transactionContract.getAllTransactions();
+
+      const structuredTransactions = availableTransactions.map(
+        ({ receiver, sender, timestamp, message, amount }) => ({
+          addressTo: receiver,
+          addressFrom: sender,
+          timestamp: new Date(timestamp.toNumber() * 1000).toLocaleString(),
+          message,
+          amount: parseInt(amount._hex) / (10 ** 18),
+        }),
+      );
+
+      setTransactions(structuredTransactions);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const checkIfWalletIsConnected = async () => {
@@ -43,12 +69,22 @@ export const TransactionProvider = ({ children }) => {
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
 
-        // getAllTransactions();
+        getAllTransactions();
       } else {
         console.log('No accounts found');
       }
+    } catch (error) {
+      console.log(error);
+      throw new Error('No Ethereum object.');
+    }
+  };
 
-      console.log(accounts);
+  const checkIfTransactionsExist = async () => {
+    try {
+      const transactionContract = getEthereumContract();
+      const transactionCount = await transactionContract.getTransactionCount();
+
+      window.localStorage.setItem('transactionCount', transactionCount);
     } catch (error) {
       console.log(error);
       throw new Error('No Ethereum object.');
@@ -103,8 +139,9 @@ export const TransactionProvider = ({ children }) => {
       console.log(`Success - ${transactionHash.hash}`);
 
       const transactionCount = await transactionContract.getTransactionCount();
-      setTransactionCount(transactionCount.toNumber())
+      setTransactionCount(transactionCount.toNumber());
 
+      window.reload();
     } catch (error) {
       console.log(error);
       throw new Error('No Ethereum object.');
@@ -113,6 +150,7 @@ export const TransactionProvider = ({ children }) => {
 
   useEffect(() => {
     checkIfWalletIsConnected();
+    checkIfTransactionsExist();
   }, []);
 
   return (
@@ -124,6 +162,7 @@ export const TransactionProvider = ({ children }) => {
         handleForm,
         sendTransaction,
         isLoading,
+        transactions,
       }}
     >
       {children}
