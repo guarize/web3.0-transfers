@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { TransactionContext } from '../context/TransactionContext';
-import testData from '../utils/testData';
 import { shortenAddress } from '../utils/shortenAddress';
 import { IoCheckmarkDone } from 'react-icons/io5';
 
@@ -20,6 +19,8 @@ const TransactionCard = ({
     sm:max-w-[300px]
     flex-col p-3 rounded-md hover:shadow-2xl
   "
+    data-aos="zoom-in"
+    data-aos-once
   >
     <div className="flex flex-col items-center w-full mt-3">
       <div className="w-full mb-6 p-2">

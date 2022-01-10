@@ -3,7 +3,11 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { RiHeart2Fill } from 'react-icons/ri';
 
 const ServiceCard = ({ color, title, icon, subtitle }) => (
-  <div className="flex flex-row justify-start items-center white-glassmorphism p-5 m-2 cursor-pointer hover:shadow-xl">
+  <div
+    className="flex flex-row justify-start items-center white-glassmorphism p-5 m-2 cursor-pointer hover:shadow-xl"
+    data-aos="fade-down"
+    data-aos-once
+  >
     <div
       className={`w-10 h-10 rounded-full flex justify-center items-center ${color}`}
     >
