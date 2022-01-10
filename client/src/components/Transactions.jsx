@@ -57,7 +57,7 @@ const TransactionCard = ({
         </svg>
         <IoCheckmarkDone
           fontSize={40}
-          className="w-full h-36 rounded-md"
+          className="w-full h-24 rounded-md"
           style={{ stroke: 'url(#bg-checkmark)' }}
         />
         <div className="bg-black p-3 px-5 w-max rounded-3xl mt-5 shadow-2xl">
