@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { TransactionContext } from '../context/TransactionContext';
 import testData from '../utils/testData';
 import { shortenAddress } from '../utils/shortenAddress';
+import { IoCheckmarkDone } from 'react-icons/io5';
 
 const TransactionCard = ({
   addressTo,
@@ -47,8 +48,24 @@ const TransactionCard = ({
             <p className="text-white text-base">Message: {message}</p>
           </>
         )}
-
-        <div className="bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl">
+        <svg width="1em" height="1em">
+          <linearGradient
+            id="bg-checkmark"
+            x1="100%"
+            y1="100%"
+            x2="0%"
+            y2="0%"
+          >
+            <stop stopColor="#11998e" offset="0%" />
+            <stop stopColor="#38ef7d" offset="100%" />
+          </linearGradient>
+        </svg>
+        <IoCheckmarkDone
+          fontSize={40}
+          className="w-full h-36 rounded-md"
+          style={{ stroke: "url(#bg-checkmark)" }}
+        />
+        <div className="bg-black p-3 px-5 w-max rounded-3xl mt-5 shadow-2xl">
           <p className="text-[#37c7da] font-bold">{timestamp}</p>
         </div>
       </div>
