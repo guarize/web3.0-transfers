@@ -12,7 +12,7 @@ const TransactionCard = ({
   url,
 }) => (
   <div
-    className="bg-[#181918] m-4 flex flex-1
+    className="white-glassmorphism m-4 flex flex-1
     2xl:min-w-[450px]
     2xl:max-w-[500px]
     sm:min-w-[270px]
