@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-<!-- <img alt="Crypto Project Preview" src="./client/dist/assets/krypto-transfers-pedro-guarize.png"> -->
+![Krypt](https://i.ibb.co/pWk4qjT/krypto-transfers-pedro-guarize.png)
 
 ### Links
 
