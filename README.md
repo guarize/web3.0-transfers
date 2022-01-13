@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/client/dist/assets/krypto-transfers-pedro-guarize.png)
+<img alt="Crypto Project Preview" src="../solidity.web3.0/client/dist/assets/krypto-transfers-pedro-guarize.png">
 
 ### Links
 
