@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/client/dist/assets/krypto-transfers_%20pedro-guarize.png)
+![](/client/dist/assets/krypto-transfers-pedro-guarize.png)
 
 ### Links
 
