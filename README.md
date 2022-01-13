@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](../solidity.web3.0/client/images/krypto-transfers_%20pedro-guarize.png)
+![](/client/dist/assets/krypto-transfers_%20pedro-guarize.png)
 
 ### Links
 
